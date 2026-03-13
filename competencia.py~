@@ -1,0 +1,30 @@
+def getTotalX(a, b):
+    # Write your code here
+    max_a, min_b = max(a), min(b)
+    if max_a > min_b: return 0
+    num = max_a
+    mult = 1
+    res = 0
+    while num <= min_b:
+        for m in a[:-1]:
+            if num%m != 0: break
+        else:
+            mult += 1
+            num = mult*max_a
+            continue
+        for n in b:
+            if n%num != 0: break
+        else:
+            mult += 1
+            num = mult*max_a
+            continue
+        res += 1
+        mult += 1
+        num = mult*max_a
+    return res
+
+
+a = [2,4]
+b = [16,32,96]
+
+print(getTotalX(a,b))
