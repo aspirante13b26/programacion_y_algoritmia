@@ -1,0 +1,3 @@
+def rb(n, b):
+    if n < b: return [n]
+    return rb(n//b, b) + [n%b]
